@@ -40,16 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const username = document.getElementById('setupUsername').value.trim();
             const email = document.getElementById('setupEmail').value.trim();
             
-            // Basic email regex + force CSPC domain
+            // Basic email regex + force CSPC student domain
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const isProperEmail = emailRegex.test(email) && email.toLowerCase().endsWith('@cspc.edu.ph');
+            const isProperEmail = emailRegex.test(email) && email.toLowerCase().endsWith('@my.cspc.edu.ph');
             
             if (!username) {
                 alert("Please enter a valid username.");
                 return;
             }
             if (!isProperEmail) {
-                alert("Please enter a valid CSPC email address (e.g., name@cspc.edu.ph).");
+                alert("Please enter a valid CSPC email address (e.g., name@my.cspc.edu.ph).");
                 return;
             }
 
