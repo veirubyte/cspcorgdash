@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSPC OrgDash</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <!-- Enable Cross-Document View Transitions (Smooth Page Loads) -->
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ambient-bg ambient-navy"></div>
+    <div class="ambient-bg ambient-orange"></div>
+
+    <aside class="sidebar glass-panel">
+        <a href="index.html" class="sidebar-header">
+            <img src="assets/logo.png" alt="CSPC OrgDash Logo" class="sidebar-logo">
+        </a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <span class="material-symbols-outlined">grid_view</span> Dashboard
+            </a>
+            <a href="event-pitches.html" class="nav-item">
+                <span class="material-symbols-outlined">event</span> Event Pitches
+            </a>
+            <a href="members-roster.html" class="nav-item active">
+                <span class="material-symbols-outlined">group</span> Members Roster
+            </a>
+            <a href="attendance-scanner.html" class="nav-item">
+                <span class="material-symbols-outlined">qr_code_scanner</span> Attendance Scanner
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header glass-panel">
+            <div class="header-left">
+                <h1>Members Roster</h1>
+                <span class="badge badge-outline">September 26, 2026</span>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name">Jake Roi B. Eloreta</span>
+                        <span class="user-role">Vice President for External Affairs</span>
+                    </div>
+                    <div class="avatar">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- Controls Row -->
+            <section class="controls-bar glass-panel" style="position: relative; z-index: 50;">
+                <div class="search-wrapper">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="search" class="search-input" placeholder="Search by student name, ID, or email...">
+                </div>
+                <select class="filter-select glass-select">
+                    <option>Filter by Course</option>
+                    <option>BSIT-2A</option>
+                    <option>BSCS-3A</option>
+                    <option>BSCS-4B</option>
+                    <option>BSIS-1A</option>
+                </select>
+                <button class="btn btn-primary">
+                    <span class="material-symbols-outlined">download</span> Export to CSV
+                </button>
+            </section>
+
+            <!-- Data Table -->
+            <section class="table-container glass-panel">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Course & Section</th>
+                            <th>Academic Standing</th>
+                            <th>Payment Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be populated by roster.js -->
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 CSPC Centralized Organization Portal</p>
+        </footer>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/roster.js"></script>
+</body>
+</html>

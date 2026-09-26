@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSPC OrgDash</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <!-- Enable Cross-Document View Transitions (Smooth Page Loads) -->
+    <meta name="view-transition" content="same-origin">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Ambient Background Gradients -->
+    <div class="ambient-bg ambient-navy"></div>
+    <div class="ambient-bg ambient-orange"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass-panel">
+        <a href="index.html" class="sidebar-header">
+            <img src="assets/logo.png" alt="CSPC OrgDash Logo" class="sidebar-logo">
+        </a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <span class="material-symbols-outlined">grid_view</span> Dashboard
+            </a>
+            <a href="event-pitches.html" class="nav-item active">
+                <span class="material-symbols-outlined">event</span> Event Pitches
+            </a>
+            <a href="members-roster.html" class="nav-item">
+                <span class="material-symbols-outlined">group</span> Members Roster
+            </a>
+            <a href="attendance-scanner.html" class="nav-item">
+                <span class="material-symbols-outlined">qr_code_scanner</span> Attendance Scanner
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="top-header glass-panel">
+            <div class="header-left header-left-cta">
+                <div class="title-wrap">
+                    <h1>Event Pitches</h1>
+                    <span class="badge badge-outline">Active Term</span>
+                </div>
+                <button class="btn btn-primary">
+                    <span class="material-symbols-outlined">add_circle</span> New Event Pitch
+                </button>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name">Jake Roi B. Eloreta</span>
+                        <span class="user-role">Vice President for External Affairs</span>
+                    </div>
+                    <div class="avatar">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- Kanban Board -->
+            <section class="kanban-board">
+                <!-- Column 1: Drafts -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h2>Drafts</h2>
+                        <span class="column-count" id="count-draft">2</span>
+                    </div>
+                    <div class="column-body" id="col-draft">
+                        <!-- Cards injected by kanban.js -->
+                    </div>
+                </div>
+
+
+                <!-- Column 2: Pending SASO Approval -->
+                <div class="kanban-column column-highlight">
+                    <div class="column-header">
+                        <h2>Pending SASO Approval</h2>
+                        <span class="column-count" id="count-pending">2</span>
+                    </div>
+                    <div class="column-body" id="col-pending">
+                        <!-- Cards injected by kanban.js -->
+                    </div>
+                </div>
+
+
+                <!-- Column 3: Approved / Live -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h2>Approved / Live</h2>
+                        <span class="column-count" id="count-live">2</span>
+                    </div>
+                    <div class="column-body" id="col-live">
+                        <!-- Cards injected by kanban.js -->
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>&copy; 2026 CSPC Centralized Organization Portal</p>
+        </footer>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/kanban.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSPC OrgDash</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <!-- Enable Cross-Document View Transitions (Smooth Page Loads) -->
+    <meta name="view-transition" content="same-origin">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Welcome Modal Overlay -->
+    <div id="welcomeModalOverlay" class="modal-overlay">
+        <div class="modal-content glass-panel" id="modalStep1">
+            <img src="assets/logo.png" alt="CSPC Logo" class="modal-logo">
+            <h2>Welcome to CSPC OrgDash</h2>
+            <p>Your centralized, real-time hub for managing student organizations, tracking live event attendance, and reviewing event pitches.</p>
+            <button id="btnGetStarted" class="btn btn-primary modal-btn">
+                <span>Get Started</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+        </div>
+
+        <div class="modal-content glass-panel" id="modalStep2" style="display: none;">
+            <img src="assets/logo.png" alt="CSPC Logo" class="modal-logo" style="width: 80px;">
+            <h2>Account Setup</h2>
+            <p>Please enter your CSPC credentials to continue.</p>
+            <div class="input-group" style="width: 100%; text-align: left; margin-bottom: 12px;">
+                <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy-blue);">Username</label>
+                <input type="text" id="setupUsername" class="search-input" placeholder="e.g. Juan Dela Cruz" style="width: 100%; padding: 12px; margin-top: 4px;" required>
+            </div>
+            <div class="input-group" style="width: 100%; text-align: left; margin-bottom: 24px;">
+                <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy-blue);">CSPC Email</label>
+                <input type="email" id="setupEmail" class="search-input" placeholder="e.g. juan.delacruz@cspc.edu.ph" style="width: 100%; padding: 12px; margin-top: 4px;" required>
+            </div>
+            <button id="btnEnterPortal" class="btn btn-primary modal-btn">
+                <span>Enter Portal</span>
+                <span class="material-symbols-outlined">login</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Ambient Background Gradients -->
+    <div class="ambient-bg ambient-navy"></div>
+    <div class="ambient-bg ambient-orange"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass-panel">
+        <a href="index.html" class="sidebar-header">
+            <img src="assets/logo.png" alt="CSPC OrgDash Logo" class="sidebar-logo">
+        </a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item active">
+                <span class="material-symbols-outlined">grid_view</span> Dashboard
+            </a>
+            <a href="event-pitches.html" class="nav-item">
+                <span class="material-symbols-outlined">event</span> Event Pitches
+            </a>
+            <a href="members-roster.html" class="nav-item">
+                <span class="material-symbols-outlined">group</span> Members Roster
+            </a>
+            <a href="attendance-scanner.html" class="nav-item">
+                <span class="material-symbols-outlined">qr_code_scanner</span> Attendance Scanner
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="top-header glass-panel">
+            <div class="header-left">
+                <h1>Dashboard Overview</h1>
+                <select class="badge badge-outline glass-select" id="dashboardFilter" style="background:transparent; border:none; cursor:pointer; color:inherit; font-family:inherit; outline:none; font-weight:600;">
+                    <option value="today">September 26, 2026</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name">Jake Roi B. Eloreta</span>
+                        <span class="user-role">Vice President for External Affairs</span>
+                    </div>
+                    <div class="avatar">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- Top Row: Summary Widgets -->
+            <section class="summary-widgets">
+                <div class="widget glass-panel">
+                    <div class="widget-header">
+                        <span class="widget-title">Total Active Members</span>
+                        <div class="widget-icon icon-navy">
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                    </div>
+                    <div class="widget-body">
+                        <h2 class="widget-value text-navy">18,420</h2>
+                        <span class="badge badge-success">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">trending_up</span> +12.4%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="widget glass-panel">
+                    <div class="widget-header">
+                        <span class="widget-title">Tickets Scanned (This Week)</span>
+                        <div class="widget-icon icon-orange">
+                            <span class="material-symbols-outlined">confirmation_number</span>
+                        </div>
+                    </div>
+                    <div class="widget-body">
+                        <h2 class="widget-value text-navy">3,284</h2>
+                        <span class="badge badge-accent">Live Event Updates</span>
+                    </div>
+                </div>
+
+                <div class="widget glass-panel">
+                    <div class="widget-header">
+                        <span class="widget-title">Pending Event Approvals</span>
+                        <div class="widget-icon icon-yellow">
+                            <span class="material-symbols-outlined">pending_actions</span>
+                        </div>
+                    </div>
+                    <div class="widget-body">
+                        <h2 class="widget-value text-navy">12</h2>
+                        <a href="event-pitches.html" class="badge badge-warning hover-scale" style="text-decoration:none; display:inline-flex;">
+                            <span class="status-dot"></span> Action Required
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle Row: Charts -->
+            <section class="charts-section">
+                <!-- Left Chart -->
+                <div class="chart-container glass-panel chart-left">
+                    <div class="chart-header">
+                        <h3>Event Attendance Trends</h3>
+                        <p>Monthly registrations and check-ins</p>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="attendanceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Right Chart -->
+                <div class="chart-container glass-panel chart-right">
+                    <div class="chart-header">
+                        <h3>Engagement by Department</h3>
+                        <p>Active participants per college</p>
+                    </div>
+                    <div class="chart-body donut-wrapper">
+                        <canvas id="engagementChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>&copy; 2026 CSPC Centralized Organization Portal</p>
+        </footer>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

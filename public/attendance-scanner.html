@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSPC OrgDash</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <!-- Enable Cross-Document View Transitions (Smooth Page Loads) -->
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ambient-bg ambient-navy"></div>
+    <div class="ambient-bg ambient-orange"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass-panel">
+        <a href="index.html" class="sidebar-header">
+            <img src="assets/logo.png" alt="CSPC OrgDash Logo" class="sidebar-logo">
+        </a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item" title="Dashboard">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="event-pitches.html" class="nav-item" title="Event Pitches">
+                <span class="material-symbols-outlined">event</span>
+                <span>Event Pitches</span>
+            </a>
+            <a href="members-roster.html" class="nav-item" title="Members Roster">
+                <span class="material-symbols-outlined">group</span>
+                <span>Members Roster</span>
+            </a>
+            <a href="attendance-scanner.html" class="nav-item active" title="Attendance Scanner">
+                <span class="material-symbols-outlined">qr_code_scanner</span>
+                <span>Attendance Scanner</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header glass-panel">
+            <div class="header-left">
+                <h1>Attendance Scanner</h1>
+                <span class="badge badge-outline">Live Event Scanner</span>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name">Jake Roi B. Eloreta</span>
+                        <span class="user-role">Vice President for External Affairs</span>
+                    </div>
+                    <div class="avatar">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- Split View Layout -->
+            <section class="split-view">
+                
+                <!-- Left: Scanner Viewfinder -->
+                <div class="scanner-panel glass-panel">
+                    <div id="reader" style="width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
+                    
+                    <p class="pulsing-text">Scanning for Delegate QR...</p>
+                </div>
+
+                <!-- Right: Live Feed -->
+                <div class="feed-panel glass-panel">
+                    <h2>Recent Scans</h2>
+                    <!-- Data will be populated by scanner.js -->
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="js/db.js"></script>
+    <script src="js/scanner.js"></script>
+</body>
+</html>
