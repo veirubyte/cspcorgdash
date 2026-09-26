@@ -1018,3 +1018,136 @@ body {
 #reader__scan_region img {
     display: none !important; /* Hides the default QR icon */
 }
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablets (1024px and below) */
+@media (max-width: 1024px) {
+    /* Global Sidebar Layout */
+    .sidebar {
+        width: 80px;
+        align-items: center;
+    }
+    
+    .sidebar .sidebar-logo {
+        display: none;
+    }
+    
+    .sidebar-header {
+        padding: 0;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+    
+    .sidebar-nav {
+        padding: 0 8px;
+    }
+    
+    .nav-item {
+        padding: 12px;
+        justify-content: center;
+    }
+    
+    .nav-item span:not(.material-symbols-outlined) {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 80px;
+    }
+
+    /* Dashboard adjustments */
+    .summary-widgets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    /* Sticky Bottom Nav Bar */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        flex-direction: row;
+        padding: 8px 0;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -4px 12px rgba(0, 0, 128, 0.05);
+        z-index: 100;
+        border-top: 1px solid var(--glass-border);
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+    }
+    
+    .sidebar-header {
+        display: none;
+    }
+    
+    .sidebar-nav {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        padding: 0 8px;
+    }
+    
+    .nav-item {
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px;
+        border-radius: 12px;
+    }
+    
+    .nav-item span:not(.material-symbols-outlined) {
+        display: block;
+        font-size: 0.65rem;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding-bottom: 90px; /* Space for the bottom nav */
+    }
+    
+    /* Header adjustments */
+    .top-header {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        gap: 16px;
+        align-items: flex-start;
+        margin: 0 12px 16px 12px;
+    }
+    
+    .header-right {
+        align-self: flex-end;
+    }
+    
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .header-left h1 {
+        font-size: 1.1rem;
+    }
+    
+    .content-wrapper {
+        padding: 0 16px;
+    }
+    
+    /* Dashboard specific */
+    .summary-widgets {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Welcome modal */
+    .modal-content {
+        width: 95%;
+        padding: 24px;
+    }
+}
